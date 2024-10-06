@@ -1,3 +1,6 @@
+# Author: Robert Depweg
+# Class: CIS226
+# Date: 9/28/24
 """Abstract Droid module"""
 
 from abc import ABC, abstractmethod
@@ -28,9 +31,3 @@ class AbstractDroid(ABC):
         Children should override this method to inspect all attributes of a
         child class and calculate the total cost based on those attributes."""
         raise NotImplementedError()
-
-
-class DroidCollection:
-    """"""
-
-    pass
