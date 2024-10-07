@@ -11,3 +11,11 @@ def main(*args):
     ui.welcome_message()
 
     choice = ui.menu_choices()
+
+    while choice != ui.MAX_MENU_CHOICES:
+        if choice == 1:
+            ui.droid_info_prompt()
+
+        if choice == 2:
+
+        else:

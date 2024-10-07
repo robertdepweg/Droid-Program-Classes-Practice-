@@ -94,9 +94,20 @@ class Astromech(Utility):
     
 class DroidCollection:
     """"""
+    def __init__(self):
+        """"""
+        self.__droid_collection = []
 
     def __str__():
+        """"""
+        for droid in DroidCollection:
+            print(droid)
+        pass
+
+    def add_to_collection():
+        """"""
         pass
 
     def total_cost():
+        """"""
         pass
