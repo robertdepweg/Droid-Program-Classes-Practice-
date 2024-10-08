@@ -9,32 +9,31 @@ from abstract_droid import AbstractDroid
 class Droid(AbstractDroid):
     """Abstract base class derived from AbstractDroid"""
     
-    material = ''
-    color = ''
-    total_cost = 0.0
+
+    # total_cost = 0.0
 
     def __init__(self, material, color):
         """Constructor"""
+        self.material = material
+        self.color = color
         super().__init__(material, color)
 
     def __str__(self):
         """Returns a formatted string containing the variables"""
-        pass
+        return f'Material: {self.material} Color: {self.color}'
 
     def calculate_total_cost(self):
         """"""
         return super().calculate_total_cost()
-
 
 class Protocol(Droid):
     """Class derived from Droid"""
 
     COST_PER_LANGUAGE = 10.00
 
-    number_of_languages = 0
-
     def __init__(self, material, color, number_of_languages):
         """"""
+        self.number_of_languages = number_of_languages
         super().__init__(material, color)
 
 
@@ -44,14 +43,15 @@ class Protocol(Droid):
 
 
 class Utility(Droid):
-    """Class derived from Droid, base class to Janitor and Astromech"""
+    """Class derived from Droid, parent class to Janitor and Astromech"""
 
-    toolbox = False
-    computer_connection = False
-    scanner = False
+
 
     def __init__(self, material, color, toolbox, computer_connection, scanner):
         """"""
+        self.toolbox = toolbox
+        self.computer_connection = computer_connection
+        self.scanner = scanner
         super().__init__(material, color)
 
     def calculate_total_cost(self) -> None:
@@ -62,11 +62,10 @@ class Utility(Droid):
 class Janitor(Utility):
     """Class derived from Utility"""
 
-    broom = False
-    vacuum = False
-
     def __init__(self, material, color, toolbox, computer_connection, scanner, broom, vacuum):
         """"""
+        self.broom = broom
+        self.vacuum = vacuum
         super().__init__()
 
     def calculate_total_cost(self) -> None:
@@ -79,13 +78,12 @@ class Astromech(Utility):
     
     COST_PER_SHIP = 40.00
 
-    navigation = False
-    number_of_ships = False
-
-    def __init__(self, material, color, toolbox, computer_connection, navigation, number_of_ships, INT):
+    def __init__(self, navigation, number_of_ships):
         """"""
-        super().__init__()
-
+        self.navigation = navigation
+        self.number_of_ships = number_of_ships
+        
+        super().__init__(material, color, toolbox, computer_connection, scanner, navigation, number_of_ships)
 
 
     def calculate_total_cost(self) -> None:
@@ -104,8 +102,9 @@ class DroidCollection:
             print(droid)
         pass
 
-    def add_to_collection():
-        """"""
+    def add_to_collection(self, info_tuple):
+        """Uses Droid __str__ constructor to format string"""
+        Droid(info_tuple)
         pass
 
     def total_cost():
