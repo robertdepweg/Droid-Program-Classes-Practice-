@@ -7,7 +7,8 @@ from droids import DroidCollection
 import os
 
 ui = UserInterface()
-droid_collection = DroidCollection
+droid_collection = DroidCollection()
+
 
 def main(*args):
     """Method to run program"""
