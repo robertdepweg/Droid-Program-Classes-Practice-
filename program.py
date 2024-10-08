@@ -19,8 +19,8 @@ def main(*args):
 
     while choice <= ui.MAX_MENU_CHOICES:
         if choice == 1:
-            info_tuple = ui.droid_info_prompt()
-            droid_collection.add_to_collection(info_tuple)
+            droid_info = ui.droid_info_prompt()
+            droid_collection.add_to_collection(droid_info)
         if choice == 2:
             ui.print_collection()
 

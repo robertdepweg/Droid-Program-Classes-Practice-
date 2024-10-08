@@ -45,14 +45,13 @@ class Protocol(Droid):
 class Utility(Droid):
     """Class derived from Droid, parent class to Janitor and Astromech"""
 
-
-
     def __init__(self, material, color, toolbox, computer_connection, scanner):
         """"""
+        super().__init__(material, color)
         self.toolbox = toolbox
         self.computer_connection = computer_connection
         self.scanner = scanner
-        super().__init__(material, color)
+        
 
     def calculate_total_cost(self) -> None:
         """"""
@@ -64,9 +63,10 @@ class Janitor(Utility):
 
     def __init__(self, material, color, toolbox, computer_connection, scanner, broom, vacuum):
         """"""
+        super().__init__()
         self.broom = broom
         self.vacuum = vacuum
-        super().__init__()
+        
 
     def calculate_total_cost(self) -> None:
         """"""
@@ -80,11 +80,9 @@ class Astromech(Utility):
 
     def __init__(self, navigation, number_of_ships):
         """"""
+        super().__init__(material, color, toolbox, computer_connection, scanner, navigation, number_of_ships)
         self.navigation = navigation
         self.number_of_ships = number_of_ships
-        
-        super().__init__(material, color, toolbox, computer_connection, scanner, navigation, number_of_ships)
-
 
     def calculate_total_cost(self) -> None:
         """"""
@@ -102,9 +100,9 @@ class DroidCollection:
             print(droid)
         pass
 
-    def add_to_collection(self, info_tuple):
+    def add_to_collection(self, droid_info):
         """Uses Droid __str__ constructor to format string"""
-        Droid(info_tuple)
+        self.__droid_collection.append(Droid(droid_info))
         pass
 
     def total_cost():
