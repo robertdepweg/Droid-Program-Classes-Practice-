@@ -7,7 +7,7 @@
 class UserInterface:
     """"""
 
-    MAX_MENU_CHOICES = 3
+    MAX_MENU_CHOICES = 2
 
     def welcome_message(self):
         """"""
@@ -20,11 +20,11 @@ class UserInterface:
             print("2. Print current Droid collection.")
             print("\n> ", end="")
             user_choice = int(input())
+            if user_choice > self.MAX_MENU_CHOICES:
+                raise IndexError
             return user_choice
         except ValueError:
             raise ValueError
-        except Exception as message:
-            print(message)
 
     def droid_option_prompt(self):
         """Prompts user for different characteristics of Droid, which is then be sent to DroidCollection"""
@@ -76,75 +76,88 @@ class UserInterface:
     def protocol_options(droid_info):
         """Asks for number of languages"""
         # Asks for number of languages, the more languages the more expensive
-        droid_info.append(
-                input(f"\nHow many languages do you want the droid to have?--\n"
-                f"1 - $150\n"
-                f"2 - $100\n"
-                f"3 - $50\n"
-                f"4 - $200\n"
-                f"> "
-            )
-        )  
-        return droid_info
+        try:
+            droid_info.append(
+                    input(f"\nHow many languages do you want the droid to have?--\n"
+                    f"1 - $150\n"
+                    f"2 - $100\n"
+                    f"3 - $50\n"
+                    f"4 - $200\n"
+                    f"> "
+                )
+            )  
+            return droid_info
+        except ValueError: 
+            raise ValueError
+        
                 
     def utility_options(droid_info):
         """Asks for toolbox, computer_connection, and scanner availability"""
-        droid_info.append(
-            input(
-                f"What type of droid do you want?--\n"
-                f"13 - Protocol: $150\n"
-                f"14 - Utility: $100\n"
-                f"15 - Janitor: $50\n"
-                f"16 - Astromech: $200\n"
-                f"> "
-            )
-        )  
-        
-        return droid_info
+        try:
+            droid_info.append(
+                input(
+                    f"What type of droid do you want?--\n"
+                    f"13 - Protocol: $150\n"
+                    f"14 - Utility: $100\n"
+                    f"15 - Janitor: $50\n"
+                    f"16 - Astromech: $200\n"
+                    f"> "
+                )
+            )  
+            
+            return droid_info
+        except ValueError: 
+            raise ValueError
 
     def janitor_options(droid_info):
         """Asks for broom and vacuum availability"""
         # Janitor pathway
         # a price for each additional option
-        droid_info.append(
-            input(
-                f"Do you want the droid to come with a broom?--\n"
-                f"13 - Protocol: $150\n"
-                f"14 - Utility: $100\n"
-                f"15 - Janitor: $50\n"
-                f"16 - Astromech: $200\n"
-                f"> "
-            )
-        )  
+        try:
+            droid_info.append(
+                input(
+                    f"Do you want the droid to come with a broom?--\n"
+                    f"13 - Protocol: $150\n"
+                    f"14 - Utility: $100\n"
+                    f"15 - Janitor: $50\n"
+                    f"16 - Astromech: $200\n"
+                    f"> "
+                )
+            )  
 
-        droid_info.append(
-            input(
-                f"Do you want the droid to come with a vacuum?--\n"
-                f"13 - Protocol: $150\n"
-                f"14 - Utility: $100\n"
-                f"15 - Janitor: $50\n"
-                f"16 - Astromech: $200\n"
-                f"> "
-            )
-        )  
-        
-        return droid_info
+            droid_info.append(
+                input(
+                    f"Do you want the droid to come with a vacuum?--\n"
+                    f"13 - Protocol: $150\n"
+                    f"14 - Utility: $100\n"
+                    f"15 - Janitor: $50\n"
+                    f"16 - Astromech: $200\n"
+                    f"> "
+                )
+            )  
+            
+            return droid_info
+        except ValueError: 
+            raise ValueError
 
     def astromech_options(droid_info):
         """Asks for navigational ability"""
         # a price for each additional option
-        droid_info.append(
-            input(
-                f"Do you want the droid to come with navigation tools?--\n"
-                f"13 - Protocol: $150\n"
-                f"14 - Utility: $100\n"
-                f"15 - Janitor: $50\n"
-                f"16 - Astromech: $200\n"
-                f"> "
-            )
-        )  
+        try:
+            droid_info.append(
+                input(
+                    f"Do you want the droid to come with navigation tools?--\n"
+                    f"13 - Protocol: $150\n"
+                    f"14 - Utility: $100\n"
+                    f"15 - Janitor: $50\n"
+                    f"16 - Astromech: $200\n"
+                    f"> "
+                )
+            )  
 
-        return droid_info
+            return droid_info
+        except ValueError: 
+            raise ValueError
 
     def print_collection(self):
         """"""
@@ -152,4 +165,8 @@ class UserInterface:
 
     def value_error_message(self):
         """Prints value error message"""
-        print("\nThat's an invalid input. Please try again.")
+        print(f"\nThat's an invalid input. Please try again.")
+
+    def print_out_of_range_error(self):
+        """Prints error if digit is greater than 2"""
+        print(f"\nPlease type a digit less than three.")
