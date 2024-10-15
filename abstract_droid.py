@@ -1,7 +1,8 @@
+"""Abstract Droid module"""
+
 # Author: Robert Depweg
 # Class: CIS226
 # Date: 9/28/24
-"""Abstract Droid module"""
 
 from abc import ABC, abstractmethod
 
