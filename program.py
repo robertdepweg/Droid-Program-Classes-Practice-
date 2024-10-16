@@ -18,36 +18,36 @@ def main(*args):
     try:
         choice = ui.menu_choices()
 
-
+        # Choice loop
         while choice <= ui.MAX_MENU_CHOICES:
             if choice == 1:
                 # Adds a droid
                 droid_info = ui.droid_option_prompt()
 
                 # The protocol droid path
-                if droid_info == '1':
+                if droid_info[0] == '1':
                     ui.protocol_options(droid_info)
-                    droids.DroidCollection._add_protocol(droid_info)
+                    droid_collection._add_protocol(droid_info)
 
                 # The utility droid path
-                elif droid_info == '2':
+                elif droid_info[0] == '2':
                     ui.utility_options(droid_info)
-                    droids.DroidCollection._add_utility(droid_info)
+                    droid_collection._add_utility(droid_info)
 
                 # The janitor droid path
                 elif droid_info[0] == '3':
                     ui.janitor_options(droid_info)
-                    droids.DroidCollection._add_janitor(droid_info)
+                    droid_collection._add_janitor(droid_info)
 
                 # The astromech droid path
                 elif droid_info[0] == '4':
                     ui.astromech_options(droid_info)
-                    droids.DroidCollection._add_astromech(droid_info)
+                    droid_collection._add_astromech(droid_info)
 
             elif choice == 2:
                 # Printing collection path
                 ui.print_collection()
-                print(droids.DroidCollection)
+                print(droid_collection)
 
             choice = ui.menu_choices()
             

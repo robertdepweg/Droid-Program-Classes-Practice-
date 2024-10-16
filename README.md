@@ -157,4 +157,5 @@ You may not need to override the `__str__` method in child classes. You certainl
 
 ## Known Problems, Issues, And/Or Errors in the Program
 
-None
+The droids cannot be added to the droidcollection class.
+The droid classes don't properly inherit properties and print their str methods.

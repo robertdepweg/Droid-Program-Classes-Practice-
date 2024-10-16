@@ -18,7 +18,7 @@ class Droid(AbstractDroid):
 
     def __str__(self):
         """Returns a formatted string containing the variables"""
-        return f"Material: {self.material} Color: {self.color} Total Cost: {self.calculate_total_cost}"
+        return f"Material: {self.material} | Color: {self.color} | Total Cost: {self.calculate_total_cost}"
     
     @property
     def material(self):
@@ -51,7 +51,7 @@ class Protocol(Droid):
 
     def __str__(self):
         """Returns a formatted string containing the variables"""
-        return f"{super.__str__()}Number of languages: {self.number_of_languages}"
+        return f"{super.__str__()}| Number of languages: {self.number_of_languages}"
 
     @property
     def number_of_languages(self):
@@ -171,16 +171,16 @@ class DroidCollection:
 
     def _add_protocol(self, droid_info):
         """Uses Droid __str__ constructor to format string"""
-        self.__droid_collection.append(Protocol(droid_info[1:]))
+        self.__droid_collection.append(Protocol(droid_info[1],droid_info[1],droid_info[1],droid_info[1]))
 
     def _add_utility(self, droid_info):
         """Uses Droid __str__ constructor to format string"""
-        self.__droid_collection.append(Utility(droid_info[1:]))
+        self.__droid_collection.append(Utility(droid_info[1],droid_info[1],droid_info[1],droid_info[1],droid_info[1]))
 
     def _add_janitor(self, droid_info):
         """Uses Droid __str__ constructor to format string"""
-        self.__droid_collection.append(Janitor(droid_info[1:]))
+        self.__droid_collection.append(Janitor(droid_info[1],droid_info[1],droid_info[1],droid_info[1],droid_info[1],droid_info[1],droid_info[1],))
 
     def _add_astromech(self, droid_info):
         """Uses Droid __str__ constructor to format string"""
-        self.__droid_collection.append(Astromech(droid_info[1:]))
+        self.__droid_collection.append(Astromech(droid_info[1],droid_info[1],droid_info[1],droid_info[1],droid_info[1],droid_info[1],droid_info[1],))
